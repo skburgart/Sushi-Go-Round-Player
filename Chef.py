@@ -1,7 +1,7 @@
 from Cookbook import Cookbook
 from Mouse import Mouse
 from Coords import Coords
-
+from Inventory import Inventory
 
 class Chef(object):
     @staticmethod
@@ -18,6 +18,7 @@ class Chef(object):
 
     @staticmethod
     def add_ingredient(ingredient):
+        Inventory.stock[ingredient] -= 1
         Mouse.click_pos(Coords.FOOD[ingredient])
 
     @staticmethod

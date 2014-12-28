@@ -16,5 +16,4 @@ class Game(object):
 
 
 if __name__ == '__main__':
-    print(Mouse.get_pos())
-    #Game.play()
+    Game.play()
