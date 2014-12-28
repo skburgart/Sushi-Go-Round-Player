@@ -9,7 +9,14 @@ class Image(object):
     ORDER_HASH = {
         260134: 'onigiri',
         277110: 'california',
-        224360: 'gunkan'
+        224360: 'gunkan',
+        # no orders
+        226347: 'none',  # seat 0
+        180070: 'none',  # seat 1
+        184780: 'none',  # seat 2
+        207937: 'none',  # seat 3
+        179043: 'none',  # seat 4
+        220867: 'none'  # seat 5
     }
 
     @staticmethod
