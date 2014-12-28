@@ -3,9 +3,10 @@ from Mouse import Mouse
 from Coords import Coords
 from Inventory import Inventory
 
+
 class Chef(object):
     @staticmethod
-    def cook(food):
+    def prepare(food):
         Chef.add_ingredients(food)
         Chef.finish()
 

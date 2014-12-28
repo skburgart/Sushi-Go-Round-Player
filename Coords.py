@@ -34,6 +34,27 @@ class Coords():
         'roe': (580, 277),
         'salmon': (490, 332)
     }
-
     PHONE_RICE = (500, 295)
     PHONE_SAKE = (500, 319)
+
+    ORDER_WIDTH = 54
+    ORDER_HEIGHT = 24
+    ORDER_PAD_Y = 56
+    ORDER_PAD_X = 30
+    ORDER_OFFSET = 101
+
+    @staticmethod
+    def get_offset_area(area):
+        return area[0] + Coords.PAD_X, \
+               area[1] + Coords.PAD_Y, \
+               area[2] + Coords.PAD_X, \
+               area[3] + Coords.PAD_Y,
+
+
+    @staticmethod
+    def order_area(seat):
+        left = Coords.ORDER_PAD_X + Coords.ORDER_OFFSET * seat
+        top = Coords.ORDER_PAD_Y
+        right = left + Coords.ORDER_WIDTH
+        bottom = top + Coords.ORDER_HEIGHT
+        return Coords.get_offset_area((left, top, right, bottom))

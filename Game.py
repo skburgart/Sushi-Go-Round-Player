@@ -1,5 +1,6 @@
 from Mouse import Mouse
 from Coords import Coords
+from Image import Image
 
 
 class Game(object):
