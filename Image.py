@@ -1,8 +1,19 @@
+import time
+
 import ImageGrab
 
-from Coordinates import Coordinates
 
+class Image(object):
+    SAVE_PATH = 'C:\\Users\\Steven\\Documents\\PycharmProjects\\SushiGoRound'
 
-def screen_grab():
-    im = ImageGrab.grab(Coordinates.GAME_WINDOW)
-    im.show()
+    @staticmethod
+    def screen_grab(area=None):
+        return ImageGrab.grab(area)
+
+    @staticmethod
+    def screen_save(area=None):
+        Image.screen_grab(area).save(Image.SAVE_PATH + '\\screen_' + str(int(time.time())) + '.png', 'PNG')
+
+    @staticmethod
+    def screen_show(area=None):
+        Image.screen_grab(area).show()

@@ -1,8 +1,8 @@
 class Coordinates():
 
     # Game bounding box
-    TOP = 50
-    RIGHT = 300
-    BOTTOM = 300
-    LEFT = 50
-    GAME_WINDOW = (LEFT, TOP, RIGHT, BOTTOM)
+    TOP = 239
+    RIGHT = 839
+    BOTTOM = 717
+    LEFT = 201
+    GAME_AREA = (LEFT, TOP, RIGHT, BOTTOM)

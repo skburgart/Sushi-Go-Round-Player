@@ -1,7 +1,9 @@
 from Mouse import Mouse
+from Image import Image
+from Coordinates import Coordinates
 
 def main():
-    print(Mouse.get_pos())
+    Image.screen_show(Coordinates.GAME_AREA)
 
 
 if __name__ == '__main__':
