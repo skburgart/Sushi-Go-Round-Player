@@ -14,20 +14,26 @@ class Coords():
     START_CONTINUE = (314, 388)
 
     # Food
-    FOOD_SUSHI = (40, 330)
-    FOOD_RICE = (90, 330)
-    FOOD_NORI = (40, 390)
-    FOOD_ROE = (90, 390)
-    FOOD_SALMON = (40, 450)
-    FOOD_UNAGI = (90, 450)
+    MAT = (205, 351)
+    FOOD = {
+        'sushi': (40, 330),
+        'rice': (90, 330),
+        'nori': (40, 390),
+        'ROE': (90, 390),
+        'salmon': (40, 450),
+        'unagi': (90, 450)
+    }
 
     # Phone
     PHONE = (550, 350)
     PHONE_TOPPING = (500, 271)
-    PHONE_TOPPING_SHRIMP = (492, 224)
-    PHONE_TOPPING_UNAGI = (580, 224)
-    PHONE_TOPPING_NORI = (492, 277)
-    PHONE_TOPPING_ROE = (580, 277)
-    PHONE_TOPPING_SALMON = (490, 332)
+    PHONE_TOPPINGS = {
+        'shrimp': (492, 224),
+        'unagi': (580, 224),
+        'nori': (492, 277),
+        'roe': (580, 277),
+        'salmon': (490, 332)
+    }
+
     PHONE_RICE = (500, 295)
     PHONE_SAKE = (500, 319)
