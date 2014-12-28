@@ -1,29 +1,26 @@
-from enum import Enum
+import time
 
 from Image import Image
 from Coords import Coords
 
 
-class CustomerState(Enum):
-    EMPTY = 0
-    ORDERED = 1
-    SERVED = 2
-    LEFT = 3
-
-
 class Customer(object):
+    ORDER_TIMEOUT = 15
 
     def __init__(self, seat):
-        self.state = CustomerState.EMPTY
         self.seat = seat
-
-    def get_state(self):
-        return self.state
+        self.last_order = 0
 
     def get_order(self):
         order_bubble = Image.screen_grab(Coords.order_area(self.seat))
         order = Image.ORDER_HASH[Image.get_hash(order_bubble)]
+        if order is 'none' or not self.can_order():
+            return 'none'
+        self.last_order = time.time()
         return order
+
+    def can_order(self):
+        return time.time() - self.last_order > Customer.ORDER_TIMEOUT
 
     def get_seat(self):
         return self.seat

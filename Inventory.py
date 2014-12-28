@@ -7,3 +7,7 @@ class Inventory(object):
         'salmon': 5,
         'unagi': 5
     }
+
+    @staticmethod
+    def restock():
+        pass

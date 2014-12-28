@@ -4,7 +4,7 @@ from Cookbook import Cookbook
 from Mouse import Mouse
 from Coords import Coords
 from Inventory import Inventory
-from Customer import Customer, CustomerState
+from Customer import Customer
 
 
 class Chef(object):
@@ -20,6 +20,7 @@ class Chef(object):
             if order is not 'none':
                 print("Preparing %s for %d" % (order, customer.get_seat()))
                 Chef.prepare(order)
+                Inventory.restock()
 
     @staticmethod
     def prepare(food):
