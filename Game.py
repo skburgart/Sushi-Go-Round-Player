@@ -3,7 +3,7 @@ import time
 from Mouse import Mouse
 from Coords import Coords
 from Chef import Chef
-from Image import Image
+
 
 class Game(object):
     NUM_SEATS = 6

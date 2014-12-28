@@ -1,5 +1,6 @@
 class Inventory(object):
     RESTOCK_THRESHOLD = 2
+    ORDER_TIMEOUT = 4
 
     stock = {
         'sushi': 5,
