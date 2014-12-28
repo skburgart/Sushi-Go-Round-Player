@@ -26,15 +26,20 @@ class Coords():
 
     # Phone
     PHONE = (550, 350)
+    PHONE_TOPPING_WIDTH = 20
     PHONE_TOPPING = (500, 271)
     PHONE_TOPPINGS = {
         'shrimp': (492, 224),
         'unagi': (580, 224),
         'nori': (492, 277),
         'roe': (580, 277),
-        'salmon': (490, 332)
+        'salmon': (490, 332),
+        'rice': (538, 280)
     }
+    PHONE_TOPPINGS_CANCEL = (596, 336)
     PHONE_RICE = (500, 295)
+    PHONE_RICE_ORDER = (500, 295)
+    PHONE_RICE_SAKE_CANCEL = (584, 333)
     PHONE_SAKE = (500, 319)
 
     ORDER_WIDTH = 54
@@ -58,6 +63,16 @@ class Coords():
         right = left + Coords.ORDER_WIDTH
         bottom = top + Coords.ORDER_HEIGHT
         return Coords.get_offset_area((left, top, right, bottom))
+
+    @staticmethod
+    def topping_order_area(topping):
+        point = Coords.PHONE_TOPPINGS[topping]
+        return Coords.get_offset_area((
+            point[0],
+            point[1],
+            point[0] + Coords.PHONE_TOPPING_WIDTH,
+            point[1] + Coords.PHONE_TOPPING_WIDTH
+        ))
 
     PLATE_PAD_Y = 207
     PLATE_PAD_X = 80

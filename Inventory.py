@@ -13,11 +13,14 @@ class Inventory(object):
 
     @staticmethod
     def restock():
-        for item, amount in Inventory.stock.items():
+        for ingredient, amount in Inventory.stock.items():
             if amount <= Inventory.RESTOCK_THRESHOLD:
-                print("%s is low, ordering more" % item)
-                Inventory.order(item)
+                print("%s is low, ordering more" % ingredient)
+                Inventory.order(ingredient)
 
     @staticmethod
-    def order(item):
-        pass  # @TODO: order item
+    def order(ingredient):
+        if ingredient == 'rice':
+            pass
+        else:
+            pass

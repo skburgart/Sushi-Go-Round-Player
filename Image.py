@@ -12,6 +12,15 @@ class Image(object):
         224360: 'gunkan',
     }
 
+    CAN_RESTOCK_HASH = {
+        'rice': 98382,
+        'shrimp': 70591,
+        'unagi': 67216,
+        'nori': 49847,
+        'roe': 76151,
+        'salmon': 71961
+    }
+
     @staticmethod
     def screen_grab(area=None):
         return ImageGrab.grab(area)
