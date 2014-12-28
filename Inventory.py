@@ -19,4 +19,4 @@ class Inventory(object):
 
     @staticmethod
     def order(item):
-        pass
+        pass  # @TODO: order item

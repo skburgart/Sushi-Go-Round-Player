@@ -17,15 +17,29 @@ class Chef(object):
         print("Checking orders")
         for customer in self.customers:
             order = customer.get_order()
-            if order is not 'none':
+            if order is not 'none' and customer.can_order() and Chef.has_ingredients(order):
                 print("Preparing %s for %d" % (order, customer.get_seat()))
                 Chef.prepare(order)
+                customer.order_prepared()
                 Inventory.restock()
+        Chef.clear_plates()
+
+    @staticmethod
+    def clear_plates():
+        pass  # @TODO: Clear plates
 
     @staticmethod
     def prepare(food):
         Chef.add_ingredients(food)
         Chef.finish()
+
+    @staticmethod
+    def has_ingredients(food):
+        recipe = Cookbook.recipe[food]
+        for ingredient, amount in recipe.items():
+            if Inventory.stock[ingredient] < amount:
+                return False
+        return True
 
     @staticmethod
     def add_ingredients(food):
