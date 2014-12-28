@@ -3,15 +3,15 @@ import time
 from Mouse import Mouse
 from Coords import Coords
 from Chef import Chef
-
+from Image import Image
 
 class Game(object):
-    SEATS = 6
+    NUM_SEATS = 6
 
     @staticmethod
     def play():
         Game.start_game()
-        chef = Chef(Game.SEATS)
+        chef = Chef(Game.NUM_SEATS)
         for i in range(15):
             chef.prepare_orders()
             time.sleep(1)
@@ -25,4 +25,6 @@ class Game(object):
 
 
 if __name__ == '__main__':
+
     Game.play()
+

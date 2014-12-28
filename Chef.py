@@ -22,7 +22,7 @@ class Chef(object):
                 Chef.prepare(order)
                 customer.order_prepared()
                 Inventory.restock()
-        Chef.clear_plates()
+        self.clear_plates()
 
     def clear_plates(self):
         for customer in self.customers:
