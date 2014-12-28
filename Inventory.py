@@ -1,4 +1,6 @@
 class Inventory(object):
+    RESTOCK_THRESHOLD = 2
+
     stock = {
         'sushi': 5,
         'rice': 10,
@@ -10,4 +12,11 @@ class Inventory(object):
 
     @staticmethod
     def restock():
+        for item, amount in Inventory.stock.items():
+            if amount <= Inventory.RESTOCK_THRESHOLD:
+                print("%s is low, ordering more" % item)
+                Inventory.order(item)
+
+    @staticmethod
+    def order(item):
         pass
