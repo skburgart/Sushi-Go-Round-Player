@@ -36,7 +36,7 @@ class Inventory(object):
         else:
             Mouse.click_pos(Coords.PHONE_TOPPING)
             if Inventory.can_restock(ingredient):
-                Mouse.click_pos(Coords.PHONE_TOPPING[ingredient])
+                Mouse.click_pos(Coords.PHONE_TOPPINGS[ingredient])
                 Mouse.click_pos(Coords.PHONE_ORDER_CONFIRM_FREE)
             else:
                 Mouse.click_pos(Coords.PHONE_TOPPINGS_CANCEL)
