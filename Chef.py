@@ -24,9 +24,9 @@ class Chef(object):
                 Inventory.restock()
         Chef.clear_plates()
 
-    @staticmethod
-    def clear_plates():
-        pass  # @TODO: Clear plates
+    def clear_plates(self):
+        for customer in self.customers:
+            customer.clear_plate()
 
     @staticmethod
     def prepare(food):

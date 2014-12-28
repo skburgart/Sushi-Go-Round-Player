@@ -58,3 +58,12 @@ class Coords():
         right = left + Coords.ORDER_WIDTH
         bottom = top + Coords.ORDER_HEIGHT
         return Coords.get_offset_area((left, top, right, bottom))
+
+    PLATE_PAD_Y = 0  # @TODO: Get plate coords
+    PLATE_PAD_X = 0
+    PLATE_OFFSET = 0
+
+    @staticmethod
+    def plate_pos(seat):
+        x = Coords.PAD_X + Coords.ORDER_PAD_X + Coords.PLATE_OFFSET * seat
+        return x, Coords.PLATE_PAD_Y

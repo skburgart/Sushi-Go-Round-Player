@@ -2,7 +2,7 @@ import time
 
 from Image import Image
 from Coords import Coords
-
+from Mouse import Mouse
 
 class Customer(object):
     ORDER_TIMEOUT = 20
@@ -15,6 +15,9 @@ class Customer(object):
         order_bubble = Image.screen_grab(Coords.order_area(self.seat))
         order = Image.ORDER_HASH[Image.get_hash(order_bubble)]
         return order
+
+    def clear_plate(self):
+        Mouse.click_pos(Coords.plate_pos(self.seat))
 
     def can_order(self):
         return time.time() - self.last_order > Customer.ORDER_TIMEOUT
