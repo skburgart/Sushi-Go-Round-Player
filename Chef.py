@@ -1,28 +1,25 @@
+import time
+
 from Cookbook import Cookbook
 from Mouse import Mouse
 from Coords import Coords
 from Inventory import Inventory
-from Image import Image
-import time
+from Customer import Customer, CustomerState
 
 
 class Chef(object):
+    def __init__(self, seats):
+        self.customers = []
+        for i in range(seats):
+            self.customers.append(Customer(i))
 
-    SEATS = 6
-    @staticmethod
-    def prepare_orders():
+    def prepare_orders(self):
         print("Checking orders")
-        for seat in range(Chef.SEATS):
-            order = Chef.get_order(seat)
+        for customer in self.customers:
+            order = customer.get_order()
             if order is not 'none':
-                print("Preparing %s for %d" % (order, seat + 1))
+                print("Preparing %s for %d" % (order, customer.get_seat()))
                 Chef.prepare(order)
-
-    @staticmethod
-    def get_order(seat):
-        order_bubble = Image.screen_grab(Coords.order_area(seat))
-        order = Image.ORDER_HASH[Image.get_hash(order_bubble)]
-        return order
 
     @staticmethod
     def prepare(food):

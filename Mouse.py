@@ -1,4 +1,5 @@
 import win32api
+
 import time
 
 import win32con
@@ -7,8 +8,8 @@ from Coords import Coords
 
 
 class Mouse(object):
-
     CLICK_SLEEP = 0.25
+
     @staticmethod
     def left_click():
         win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 0, 0)

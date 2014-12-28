@@ -11,10 +11,10 @@ class Game(object):
     @staticmethod
     def play():
         Game.start_game()
+        chef = Chef(Game.SEATS)
         for i in range(15):
-            Chef.prepare_orders()
+            chef.prepare_orders()
             time.sleep(1)
-
 
     @staticmethod
     def start_game():
