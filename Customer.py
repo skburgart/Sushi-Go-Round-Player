@@ -13,8 +13,10 @@ class Customer(object):
 
     def get_order(self):
         order_bubble = Image.screen_grab(Coords.order_area(self.seat))
-        order = Image.ORDER_HASH[Image.get_hash(order_bubble)]
-        return order
+        image_hash = Image.get_hash(order_bubble)
+        if image_hash not in Image.ORDER_HASH.keys():
+            return 'none'
+        return Image.ORDER_HASH[image_hash]
 
     def clear_plate(self):
         Mouse.click_pos(Coords.plate_pos(self.seat))
