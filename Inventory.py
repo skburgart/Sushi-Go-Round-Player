@@ -1,11 +1,11 @@
 from Mouse import Mouse
 from Coords import Coords
 from Image import Image
-
+import time
 
 class Inventory(object):
     RESTOCK_THRESHOLD = 2
-    ORDER_TIMEOUT = 6
+    RESTOCK_TIMEOUT = 6
 
     stock = {
         'sushi': {
@@ -49,23 +49,33 @@ class Inventory(object):
 
     @staticmethod
     def restock_ingredient(ingredient):
-        Mouse.click_pos(Coords.PHONE)
-        if ingredient == 'rice':
-            Mouse.click_pos(Coords.PHONE_RICE)
-            if Inventory.can_restock(ingredient):
-                Mouse.click_pos(Coords.PHONE_RICE_ORDER)
-                Mouse.click_pos(Coords.PHONE_ORDER_CONFIRM_FREE)
+        if Inventory.stock[ingredient]['timeout'] == 0:
+            Mouse.click_pos(Coords.PHONE)
+            if ingredient == 'rice':
+                Mouse.click_pos(Coords.PHONE_RICE)
+                if Inventory.can_restock(ingredient):
+                    Mouse.click_pos(Coords.PHONE_RICE_ORDER)
+                    Mouse.click_pos(Coords.PHONE_ORDER_CONFIRM_FREE)
+                    Inventory.stock[ingredient]['timeout'] = time.time()
+                else:
+                    Mouse.click_pos(Coords.PHONE_RICE_SAKE_CANCEL)
             else:
-                Mouse.click_pos(Coords.PHONE_RICE_SAKE_CANCEL)
-        else:
-            Mouse.click_pos(Coords.PHONE_TOPPING)
-            if Inventory.can_restock(ingredient):
-                Mouse.click_pos(Coords.PHONE_TOPPINGS[ingredient])
-                Mouse.click_pos(Coords.PHONE_ORDER_CONFIRM_FREE)
-            else:
-                Mouse.click_pos(Coords.PHONE_TOPPINGS_CANCEL)
+                Mouse.click_pos(Coords.PHONE_TOPPING)
+                if Inventory.can_restock(ingredient):
+                    Mouse.click_pos(Coords.PHONE_TOPPINGS[ingredient])
+                    Mouse.click_pos(Coords.PHONE_ORDER_CONFIRM_FREE)
+                    Inventory.stock[ingredient]['timeout'] = time.time()
+                else:
+                    Mouse.click_pos(Coords.PHONE_TOPPINGS_CANCEL)
 
     @staticmethod
     def can_restock(ingredient):
         img = Image.screen_grab(Coords.topping_order_area(ingredient))
         return Image.get_hash(img) == Image.CAN_RESTOCK_HASH[ingredient]
+
+    @staticmethod
+    def check_inventory():
+        for ingredient, info in Inventory.stock.items():
+            if info['timeout'] is not 0 and info['timeout'] + Inventory.RESTOCK_TIMEOUT < time.time():
+                info['amount'] += info['restock']
+                info['timeout'] = 0
