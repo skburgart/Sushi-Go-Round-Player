@@ -6,7 +6,7 @@ import Mouse
 
 
 class Customer(object):
-    ORDER_TIMEOUT = 20
+    ORDER_TIMEOUT = [20, 20, 20, 20, 20, 20, 20]  # TODO: Get timeouts
 
     def __init__(self, seat):
         self.seat = seat
@@ -23,7 +23,7 @@ class Customer(object):
         Mouse.click_pos(Coords.plate_pos(self.seat))
 
     def can_order(self):
-        return time.time() - self.last_order > Customer.ORDER_TIMEOUT
+        return time.time() - self.last_order > Customer.ORDER_TIMEOUT[self.seat]
 
     def order_prepared(self):
         self.last_order = time.time()

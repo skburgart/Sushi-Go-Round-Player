@@ -75,6 +75,6 @@ def can_restock(ingredient):
 
 def check_inventory():
     for ingredient, info in stock.items():
-        if info['timeout'] is not 0 and info['timeout'] + RESTOCK_TIMEOUT < time.time():
+        if info['timeout'] is not 0 and time.time() - info['timeout'] > RESTOCK_TIMEOUT:
             info['amount'] += info['restock']
             info['timeout'] = 0

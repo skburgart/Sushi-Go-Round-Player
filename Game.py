@@ -1,5 +1,3 @@
-import time
-
 import Mouse
 import Coords
 import Chef
@@ -13,7 +11,6 @@ def play():
         Inventory.restock()
         Inventory.check_inventory()
         Chef.clear_plates()
-        time.sleep(1)
 
 
 def start_game():
