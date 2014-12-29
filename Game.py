@@ -10,8 +10,8 @@ def play():
     start_game()
     while True:
         Chef.prepare_orders()
+        Inventory.order_low_stock()
         Inventory.restock()
-        Inventory.check_inventory()
         Chef.clear_plates()
 
 

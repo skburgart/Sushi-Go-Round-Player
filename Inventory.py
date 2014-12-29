@@ -42,17 +42,17 @@ stock = {
 }
 
 
-def restock():
+def order_low_stock():
     for ingredient, info in stock.items():
         if info['amount'] <= RESTOCK_THRESHOLD and info['timeout'] == 0:
-            restock_ingredient(ingredient)
+            order_ingredient(ingredient)
 
 
-def restock_ingredient(ingredient):
+def order_ingredient(ingredient):
     Mouse.click_pos(Coords.PHONE)
     if ingredient == 'rice':
         Mouse.click_pos(Coords.PHONE_RICE)
-        if can_restock(ingredient):
+        if can_order_ingredient(ingredient):
             Mouse.click_pos(Coords.PHONE_RICE_ORDER)
             Mouse.click_pos(Coords.PHONE_ORDER_CONFIRM_FREE)
             stock[ingredient]['timeout'] = time.time()
@@ -60,7 +60,7 @@ def restock_ingredient(ingredient):
             Mouse.click_pos(Coords.PHONE_RICE_SAKE_CANCEL)
     else:
         Mouse.click_pos(Coords.PHONE_TOPPING)
-        if can_restock(ingredient):
+        if can_order_ingredient(ingredient):
             Mouse.click_pos(Coords.PHONE_TOPPINGS[ingredient])
             Mouse.click_pos(Coords.PHONE_ORDER_CONFIRM_FREE)
             stock[ingredient]['timeout'] = time.time()
@@ -68,12 +68,12 @@ def restock_ingredient(ingredient):
             Mouse.click_pos(Coords.PHONE_TOPPINGS_CANCEL)
 
 
-def can_restock(ingredient):
+def can_order_ingredient(ingredient):
     img = Image.screen_grab(Coords.topping_order_area(ingredient))
     return Image.get_hash(img) == Image.CAN_RESTOCK_HASH[ingredient]
 
 
-def check_inventory():
+def restock():
     for ingredient, info in stock.items():
         if info['timeout'] is not 0 and time.time() - info['timeout'] > RESTOCK_TIMEOUT:
             info['amount'] += info['restock']
