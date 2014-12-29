@@ -8,7 +8,7 @@ from Coords import Coords
 
 
 class Mouse(object):
-    CLICK_SLEEP = 0.1
+    CLICK_SLEEP = 0.05
 
     @staticmethod
     def left_click():

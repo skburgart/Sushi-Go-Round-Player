@@ -13,7 +13,7 @@ class Game(object):
     def play():
         Game.start_game()
         chef = Chef(Game.NUM_SEATS)
-        for i in range(15):
+        while True:
             chef.prepare_orders()
             time.sleep(1)
 

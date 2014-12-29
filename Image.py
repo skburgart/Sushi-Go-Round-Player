@@ -8,8 +8,10 @@ class Image(object):
 
     ORDER_HASH = {
         260134: 'onigiri',
-        277110: 'california',
+        277110: 'caliroll',
         224360: 'gunkan',
+        234448: 'salmonroll',
+        185636: 'shrimpsushi'
     }
 
     CAN_RESTOCK_HASH = {

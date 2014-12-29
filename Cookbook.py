@@ -4,7 +4,7 @@ class Cookbook(object):
             'rice': 2,
             'nori': 1
         },
-        'california': {
+        'caliroll': {
             'rice': 1,
             'nori': 1,
             'roe': 1
@@ -13,5 +13,15 @@ class Cookbook(object):
             'rice': 1,
             'nori': 1,
             'roe': 2
+        },
+        'salmonroll': {
+            'rice': 1,
+            'nori': 1,
+            'salmon': 2
+        },
+        'shrimpsushi': {
+            'rice': 1,
+            'nori': 1,
+            'shrimp': 2
         }
     }

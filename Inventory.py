@@ -1,10 +1,12 @@
+import time
+
 from Mouse import Mouse
 from Coords import Coords
 from Image import Image
-import time
+
 
 class Inventory(object):
-    RESTOCK_THRESHOLD = 2
+    RESTOCK_THRESHOLD = 4
     RESTOCK_TIMEOUT = 6
 
     stock = {
@@ -23,7 +25,7 @@ class Inventory(object):
             'timeout': 0,
             'restock': 10
         },
-        'roe':  {
+        'roe': {
             'amount': 10,
             'timeout': 0,
             'restock': 10
