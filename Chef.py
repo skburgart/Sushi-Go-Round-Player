@@ -21,8 +21,8 @@ class Chef(object):
                 print("Preparing %s for %d" % (order, customer.get_seat()))
                 Chef.prepare(order)
                 customer.order_prepared()
-                Inventory.restock()
         self.clear_plates()
+        Inventory.restock()
         Inventory.check_inventory()
 
     def clear_plates(self):

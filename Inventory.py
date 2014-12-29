@@ -10,7 +10,7 @@ class Inventory(object):
     RESTOCK_TIMEOUT = 6
 
     stock = {
-        'sushi': {
+        'shrimp': {
             'amount': 5,
             'timeout': 0,
             'restock': 5

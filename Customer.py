@@ -4,6 +4,7 @@ from Image import Image
 from Coords import Coords
 from Mouse import Mouse
 
+
 class Customer(object):
     ORDER_TIMEOUT = 20
 
