@@ -16,7 +16,6 @@ class Customer(object):
         order_bubble = Image.screen_grab(Coords.order_area(self.seat))
         image_hash = Image.get_hash(order_bubble)
         if image_hash not in Image.ORDER_HASH.keys():
-            Image.save(order_bubble, str(image_hash))
             return 'none'
         return Image.ORDER_HASH[image_hash]
 
