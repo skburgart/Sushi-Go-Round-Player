@@ -28,5 +28,11 @@ class Cookbook(object):
             'rice': 1,
             'nori': 1,
             'unagi': 2
+        },
+        'dragonroll': {
+            'rice': 2,
+            'nori': 1,
+            'roe': 1,
+            'unagi': 2
         }
     }
