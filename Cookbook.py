@@ -34,5 +34,13 @@ class Cookbook(object):
             'nori': 1,
             'roe': 1,
             'unagi': 2
+        },
+        'combo': {
+            'rice': 2,
+            'nori': 1,
+            'roe': 1,
+            'salmon': 1,
+            'unagi': 1,
+            'shrimp': 1
         }
     }
