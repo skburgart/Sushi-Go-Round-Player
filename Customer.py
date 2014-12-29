@@ -1,8 +1,8 @@
 import time
 
-from Image import Image
-from Coords import Coords
-from Mouse import Mouse
+import Image
+import Coords
+import Mouse
 
 
 class Customer(object):
