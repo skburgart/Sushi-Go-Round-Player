@@ -3,6 +3,8 @@ import Coords
 import Chef
 import Inventory
 
+NUM_SEATS = 6
+
 
 def play():
     start_game()

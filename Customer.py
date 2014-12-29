@@ -1,12 +1,19 @@
 import time
 
 import Image
-import Coords
 import Mouse
+import Coords
+from Game import NUM_SEATS
 
 
 class Customer(object):
-    ORDER_TIMEOUT = [20, 20, 20, 20, 20, 20, 20]  # TODO: Get timeouts
+    DELAY_DELTA = 2.65
+    DELAY_INITIAL = 2
+    DELAY_FEEDER = 6
+
+    ORDER_TIMEOUT = []
+    for i in range(NUM_SEATS):
+        ORDER_TIMEOUT.append(DELAY_INITIAL + DELAY_FEEDER + DELAY_DELTA * i)
 
     def __init__(self, seat):
         self.seat = seat

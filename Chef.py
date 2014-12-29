@@ -5,8 +5,8 @@ import Mouse
 import Coords
 import Inventory
 from Customer import Customer
+from Game import NUM_SEATS
 
-NUM_SEATS = 6
 customers = []
 for c in range(NUM_SEATS):
     customers.append(Customer(c))
