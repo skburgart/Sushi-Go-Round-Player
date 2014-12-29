@@ -19,9 +19,9 @@ class Chef(object):
             if order is not 'none' and customer.can_order() and Chef.has_ingredients(order):
                 Chef.prepare(order)
                 customer.order_prepared()
-        self.clear_plates()
         Inventory.restock()
         Inventory.check_inventory()
+        self.clear_plates()
 
     def clear_plates(self):
         for customer in self.customers:
