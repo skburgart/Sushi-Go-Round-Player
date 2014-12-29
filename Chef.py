@@ -55,4 +55,4 @@ class Chef(object):
     @staticmethod
     def finish():
         Mouse.click_pos(Coords.MAT)
-        time.sleep(1)
+        time.sleep(1.25)
