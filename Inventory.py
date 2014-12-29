@@ -46,7 +46,6 @@ class Inventory(object):
     def restock():
         for ingredient, info in Inventory.stock.items():
             if info['amount'] <= Inventory.RESTOCK_THRESHOLD:
-                print("%s is low, ordering more" % ingredient)
                 Inventory.restock_ingredient(ingredient)
 
     @staticmethod

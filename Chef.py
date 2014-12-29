@@ -14,11 +14,9 @@ class Chef(object):
             self.customers.append(Customer(i))
 
     def prepare_orders(self):
-        print("Checking orders")
         for customer in self.customers:
             order = customer.get_order()
             if order is not 'none' and customer.can_order() and Chef.has_ingredients(order):
-                print("Preparing %s for %d" % (order, customer.get_seat()))
                 Chef.prepare(order)
                 customer.order_prepared()
         self.clear_plates()
