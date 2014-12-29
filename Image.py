@@ -13,7 +13,8 @@ class Image(object):
         234448: 'salmonroll',
         185636: 'shrimpsushi',
         183992: 'unagiroll',
-        224232: 'dragonroll'
+        224232: 'dragonroll',
+        201224: 'combo'
     }
 
     CAN_RESTOCK_HASH = {
