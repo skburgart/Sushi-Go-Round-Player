@@ -2,16 +2,17 @@ import time
 
 import Mouse
 import Coords
-from Chef import Chef
-
-NUM_SEATS = 6
+import Chef
+import Inventory
 
 
 def play():
     start_game()
-    chef = Chef(NUM_SEATS)
     while True:
-        chef.prepare_orders()
+        Chef.prepare_orders()
+        Inventory.restock()
+        Inventory.check_inventory()
+        Chef.clear_plates()
         time.sleep(1)
 
 

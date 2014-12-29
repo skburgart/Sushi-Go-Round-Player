@@ -6,26 +6,23 @@ import Coords
 import Inventory
 from Customer import Customer
 
+NUM_SEATS = 6
+customers = []
+for c in range(NUM_SEATS):
+    customers.append(Customer(c))
 
-class Chef(object):
-    def __init__(self, seats):
-        self.customers = []
-        for i in range(seats):
-            self.customers.append(Customer(i))
 
-    def prepare_orders(self):
-        for customer in self.customers:
-            order = customer.get_order()
-            if order is not 'none' and customer.can_order() and has_ingredients(order):
-                prepare(order)
-                customer.order_prepared()
-        Inventory.restock()
-        Inventory.check_inventory()
-        self.clear_plates()
+def prepare_orders():
+    for customer in customers:
+        order = customer.get_order()
+        if order is not 'none' and customer.can_order() and has_ingredients(order):
+            prepare(order)
+            customer.order_prepared()
 
-    def clear_plates(self):
-        for customer in self.customers:
-            customer.clear_plate()
+
+def clear_plates():
+    for customer in customers:
+        customer.clear_plate()
 
 
 def prepare(food):
