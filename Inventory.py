@@ -7,7 +7,7 @@ from Image import Image
 
 class Inventory(object):
     RESTOCK_THRESHOLD = 4
-    RESTOCK_TIMEOUT = 6
+    RESTOCK_TIMEOUT = 5
 
     stock = {
         'shrimp': {

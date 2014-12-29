@@ -16,7 +16,7 @@ class Coords():
     # Food
     MAT = (205, 351)
     FOOD = {
-        'sushi': (40, 330),
+        'shrimp': (40, 330),
         'rice': (90, 330),
         'nori': (40, 390),
         'roe': (90, 390),
