@@ -37,7 +37,7 @@ class Chef(object):
     def has_ingredients(food):
         recipe = Cookbook.recipe[food]
         for ingredient, amount in recipe.items():
-            if Inventory.stock[ingredient] < amount:
+            if Inventory.stock[ingredient]['amount'] < amount:
                 return False
         return True
 
@@ -50,7 +50,7 @@ class Chef(object):
 
     @staticmethod
     def add_ingredient(ingredient):
-        Inventory.stock[ingredient] -= 1
+        Inventory.stock[ingredient]['amount'] -= 1
         Mouse.click_pos(Coords.FOOD[ingredient])
 
     @staticmethod

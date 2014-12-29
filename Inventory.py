@@ -5,21 +5,45 @@ from Image import Image
 
 class Inventory(object):
     RESTOCK_THRESHOLD = 2
-    ORDER_TIMEOUT = 4
+    ORDER_TIMEOUT = 6
 
     stock = {
-        'sushi': 5,
-        'rice': 10,
-        'nori': 10,
-        'roe': 10,
-        'salmon': 5,
-        'unagi': 5
+        'sushi': {
+            'amount': 5,
+            'timeout': 0,
+            'restock': 5
+        },
+        'rice': {
+            'amount': 10,
+            'timeout': 0,
+            'restock': 10
+        },
+        'nori': {
+            'amount': 10,
+            'timeout': 0,
+            'restock': 10
+        },
+        'roe':  {
+            'amount': 10,
+            'timeout': 0,
+            'restock': 10
+        },
+        'salmon': {
+            'amount': 5,
+            'timeout': 0,
+            'restock': 5
+        },
+        'unagi': {
+            'amount': 5,
+            'timeout': 0,
+            'restock': 5
+        }
     }
 
     @staticmethod
     def restock():
-        for ingredient, amount in Inventory.stock.items():
-            if amount <= Inventory.RESTOCK_THRESHOLD:
+        for ingredient, info in Inventory.stock.items():
+            if info['amount'] <= Inventory.RESTOCK_THRESHOLD:
                 print("%s is low, ordering more" % ingredient)
                 Inventory.restock_ingredient(ingredient)
 
