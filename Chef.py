@@ -7,9 +7,7 @@ import Inventory
 from Customer import Customer
 from Game import NUM_SEATS
 
-customers = []
-for c in range(NUM_SEATS):
-    customers.append(Customer(c))
+customers = [Customer(i) for i in range(NUM_SEATS)]
 
 
 def prepare_orders():
